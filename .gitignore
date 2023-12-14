@@ -1,0 +1,3 @@
+.vagrant
+shared/argocd.txt
+develop_venv

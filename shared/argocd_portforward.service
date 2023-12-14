@@ -1,0 +1,18 @@
+[Unit]
+Description=Kubectl Port Forward Service for ArgoCD
+After=network.target docker.service minikube.service
+Wants=minikube.service
+
+[Service]
+RemainAfterExit=yes
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/local/bin/minikube kubectl -- port-forward svc/argocd-server -n argocd 8080:443 --address='0.0.0.0'
+ExecStartPost=/bin/echo "Port Forwarding for ArgoCD started"
+Restart=on-failure
+RestartSec=15s
+User=vagrant
+Group=vagrant
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
