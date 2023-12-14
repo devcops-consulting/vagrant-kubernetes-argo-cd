@@ -1,4 +1,4 @@
-#!/bin/aaabaaaaash
+#!/bin/bash
 
 #Create systemd service
 service_file="argocd_portforward.service"
