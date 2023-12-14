@@ -32,5 +32,5 @@ echo "Initial Password: $INITIAL_PASSWORD" | tee -a /shared/argocd.txt
 
 # Check if the password was not retrieved
 if [ -z "$INITIAL_PASSWORD" ]; then
-    echo "Failed to retrieve the initial password within the maximum wait time. Possibly you need to run manually this script - $0."
+    echo "Failed to retrieve the initial password within the maximum wait time. Possibly you need to run manually this script - /provision/argocd_initial_password.sh"
 fi
