@@ -51,6 +51,10 @@ https://10.10.10.10:8080
 
 **Congratulations! You have successfully brought up ArgoCD with Minikube in a Rocky Linux 9 OS using Vagrant with automated setup.**
 
+You have also a fully functioning OS which is accessible via `vagrant ssh` command inside the cloned folder.
+
+If you are interested on technical solutions, check [technical.md](technical.md) file.
+
 ### Tested on
 
 ### Fujitsu lifebook U7411
@@ -72,7 +76,7 @@ VM Forwarded Port: Guest - 8080, Host - 8080
 
 ### Kernel update
 
-If you execute `dnf update` it is a possibility that new kernel was available, which required a recompile of guest additions. as a side effect shared mounts, and possilby other features will be broke with this reason.
+If you execute `dnf update` it is a possibility that new kernel was available, which required a recompile of guest additions. as a side effect shared mounts, and other features will be broke with this reason.
 
 ### In-use port
 
