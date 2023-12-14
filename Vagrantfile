@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
     kubernetes.vm.synced_folder "./shared", "/shared"
     kubernetes.vm.synced_folder "./provision", "/provision"
     kubernetes.vm.provision "shell", inline: "hostnamectl set-hostname vagrant-kubernetes"
+    kubernetes.vm.provision "shell", inline: "sudo dnf install dos2unix -y; dos2unix /provision/*"
     kubernetes.vm.provision "shell", path: "provision/os.sh"
     kubernetes.vm.provision "shell", path: "provision/docker.sh"
     kubernetes.vm.provision "shell", path: "provision/compose.sh"
