@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
     kubernetes.vm.provision "shell", path: "provision/snapd_k9s.sh"
     kubernetes.vm.provision "shell", path: "provision/argocd_k8s.sh", privileged: false
     kubernetes.vm.provision "shell", path: "provision/argocd_2_portforward.sh"
+    kubernetes.vm.provision "shell", path: "provision/argocd_binary.sh"
     kubernetes.vm.provision "shell", path: "provision/argocd_initial_password.sh", privileged: false
   end
 end

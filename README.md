@@ -72,6 +72,16 @@ VM IP Address: 10.10.10.10
 VM Forwarded Port: Guest - 8080, Host - 8080
 ```
 
+### Fujitsu lifebook E746
+
+```bash
+Installed Memory: 8GB
+OS Information: Microsoft Windows 10 Pro build 19045, 64 bites
+Vagrant Version: Vagrant 2.4.0
+VirtualBox Version: 7.0.12.159484 7.0.12
+VirtualBox Guest Additions Version: VirtualBox 7.0.12 Guest Additions
+```
+
 ## Common issues
 
 ### Kernel update

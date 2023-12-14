@@ -69,31 +69,3 @@ Write-Host "OS Information: $os"
 Write-Host "Vagrant Version: $vagrantVersion"
 Write-Host "VirtualBox Version: $virtualBoxVersion"
 Write-Host "VirtualBox Guest Additions Version: $guestAdditionsVersion"
-
-# Define the path to the Vagrantfile
-$vagrantFilePath = ".\Vagrantfile"
-
-# Read the content of the Vagrantfile
-$vagrantFileContent = Get-Content $vagrantFilePath -Raw
-
-$memoryPattern = 'vb\.memory\s+=\s+"(?<memory>[^"]+)"'
-$cpusPattern = 'vb\.cpus\s+=\s+"(?<cpus>[^"]+)"'
-$ipPattern = 'ip:\s+"(?<ip>[^"]+)"'
-$forwardedPortPattern = 'guest:\s+(?<guestPort>\d+),\s+host:\s+(?<hostPort>\d+)'
-$memoryMatches = [regex]::Match($vagrantFileContent, $memoryPattern)
-$cpusMatches = [regex]::Match($vagrantFileContent, $cpusPattern)
-$ipMatches = [regex]::Match($vagrantFileContent, $ipPattern)
-$forwardedPortMatches = [regex]::Match($vagrantFileContent, $forwardedPortPattern)
-
-# Assign extracted values to variables
-$memoryGB = [int]($memoryMatches.Groups["memory"].Value) / 1024
-$cpus = $cpusMatches.Groups["cpus"].Value
-$ipAddress = $ipMatches.Groups["ip"].Value
-$guestPort = $forwardedPortMatches.Groups["guestPort"].Value
-$hostPort = $forwardedPortMatches.Groups["hostPort"].Value
-
-# Output the extracted information
-Write-Host "VM Assigned Memory (GB): $memoryGB"
-Write-Host "VM Assigned CPUs: $cpus"
-Write-Host "VM IP Address: $ipAddress"
-Write-Host "VM Forwarded Port: Guest - $guestPort, Host - $hostPort"
